@@ -49,8 +49,10 @@ def folder_uploader_sync(folder_path, bucket_name, oss_endpoint):
 
         # check if the file already exists in oss
         if bucket.object_exists(target_path):
-            # print(f"{self.process_idx}: {target_path} already exists in oss")
+            print(f"{target_path} already exists in oss")
             continue
+        else:
+            print(f"Uploading {target_path} to {bucket_name}")
 
         total_size = os.path.getsize(filepath)
         # Use the determine_part_size method to determine the part size.
