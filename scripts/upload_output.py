@@ -58,7 +58,11 @@ def folder_uploader_sync(folder_path, bucket_name, oss_endpoint):
         # Use the determine_part_size method to determine the part size.
         part_size = determine_part_size(total_size, preferred_size=30 * 1024 * 1024)
 
+        print(f"total_size: {total_size}, part_size: {part_size}")
+
         upload_id = bucket.init_multipart_upload(target_path).upload_id
+
+        print(f"upload_id: {upload_id}")
 
         parts = []
 
@@ -68,6 +72,9 @@ def folder_uploader_sync(folder_path, bucket_name, oss_endpoint):
             offset = 0
             while offset < total_size:
                 num_to_upload = min(part_size, total_size - offset)
+
+                print(f"offset: {offset}, num_to_upload: {num_to_upload}")
+
                 # Use the SizedFileAdapter(fileobj, size) method to generate a new object and recalculate the position from which the append operation starts.
                 result = bucket.upload_part(
                     target_path,
