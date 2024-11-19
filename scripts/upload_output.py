@@ -56,7 +56,7 @@ def folder_uploader_sync(folder_path, bucket_name, oss_endpoint):
 
         total_size = os.path.getsize(filepath)
         # Use the determine_part_size method to determine the part size.
-        part_size = determine_part_size(total_size, preferred_size=30 * 1024 * 1024)
+        part_size = determine_part_size(total_size, preferred_size=1 * 1024 * 1024)
 
         print(f"total_size: {total_size}, part_size: {part_size}")
 
