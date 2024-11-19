@@ -92,7 +92,7 @@ def folder_uploader_sync(folder_path, bucket_name, oss_endpoint):
 
 
 folder_uploader_sync(
-    os.path.join("/wham", "output"),
+    os.path.join("/WHAM", "output"),
     "wham-results",
     "oss-ap-southeast-1.aliyuncs.com",
 )
