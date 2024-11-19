@@ -1,8 +1,8 @@
 import os
 import subprocess
 
-target_folder = os.path.join("/wham", "videos")
-results_folder = os.path.join("/wham", "output")
+target_folder = os.path.join("/WHAM", "videos")
+results_folder = os.path.join("/WHAM", "output")
 
 # list all files in `target_folder`
 files = os.listdir(target_folder)
