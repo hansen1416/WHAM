@@ -23,6 +23,6 @@ for f in files:
     video_path = os.path.join(target_folder, f)
 
     # List of commands to run
-    command = ["python", "demo.py", "--video", video_path]
+    command = ["python", "custom.py", "--video", video_path]
 
     subprocess.run(command, check=True)
