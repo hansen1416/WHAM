@@ -119,8 +119,6 @@ def upload_folder(local_folder, bucket):
 
         s3_path = all_s3_path[i]
 
-        print(f"Uploading {s3_path} to {bucket}")
-
         upload_file(
             filepath,
             bucket,
