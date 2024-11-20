@@ -257,7 +257,7 @@ def run(
 
     if save_pkl:
         joblib.dump(results, osp.join(output_pth, "wham_output.pkl"))
-        print(f"Save results at {osp.join(output_pth, "wham_output.pkl")}")
+        print(f"Save results at {osp.join(output_pth, 'wham_output.pkl')}")
 
     # Visualize
     if visualize:
