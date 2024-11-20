@@ -32,10 +32,12 @@ class ProgressPercentage(object):
 
 def check_object_exists(s3_client, bucket_name, object_key):
     try:
-        s3_client.head_object(Bucket=bucket_name, Key=object_key)
-        return True
+        response = s3_client.head_object(Bucket=bucket_name, Key=object_key)
+
+        # return the file size
+        return int(response["ContentLength"])
     except ClientError:
-        return False
+        return 0
 
 
 def upload_file(file_name, bucket, object_name=None, s3_client=None, config=None):
@@ -59,7 +61,10 @@ def upload_file(file_name, bucket, object_name=None, s3_client=None, config=None
             use_threads=True,
         )
 
-    if check_object_exists(s3_client, bucket, object_name):
+    cloud_size = check_object_exists(s3_client, bucket, object_name)
+    local_size = os.path.getsize(file_name)
+
+    if cloud_size == local_size:
         print(f"{object_name} already exists in s3")
         return
 
