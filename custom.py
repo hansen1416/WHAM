@@ -257,6 +257,7 @@ def run(
 
     if save_pkl:
         joblib.dump(results, osp.join(output_pth, "wham_output.pkl"))
+        print(f"Save results at {osp.join(output_pth, "wham_output.pkl")}")
 
     # Visualize
     if visualize:
@@ -300,7 +301,7 @@ if __name__ == "__main__":
     )
 
     parser.add_argument(
-        "--save_pkl", action="store_true", help="Save output as pkl file"
+        "--save_pkl", default=True, action="store_true", help="Save output as pkl file"
     )
 
     parser.add_argument(

@@ -72,7 +72,7 @@ def upload_file(file_name, bucket, object_name=None, s3_client=None, config=None
             file_name,
             bucket,
             object_name,
-            ExtraArgs={"StorageClass": "GLACIER_IR"},
+            ExtraArgs={"StorageClass": "INTELLIGENT_TIERING"},
             Callback=ProgressPercentage(file_name),
             Config=config,
         )
